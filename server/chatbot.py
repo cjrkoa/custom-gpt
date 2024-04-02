@@ -10,8 +10,6 @@ load_dotenv()
 db = get_database()
 collection = db["saved_prompt_responses"]
 
-client = OpenAI(api_key=environ.get("OPENAI_API_KEY"))
-
 def find_question_from_database(question: str):
   return collection.find_one({"_id": hashlib.sha256(question.lower().encode()).hexdigest()}, {"_id": 0, "message": 1})
 
@@ -23,6 +21,8 @@ def insert_question_to_database(question: str, message: str) -> None:
 
 def answer_question(question: str) -> dict:
   """MAKES AN API CALL TO OPENAI - Input a question, output an answer"""
+  client = OpenAI()
+  
   messages = generate_openai_api_messages(read_files(["balancer-requirements.typ", "balancer-design.typ"]))
   
   match = find_question_from_database(question)
