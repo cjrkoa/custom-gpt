@@ -28,8 +28,8 @@ export default function Home() {
   return (
     <Fragment>
       <div className="grid grid-cols-5 grid-rows-8 gap-1 h-screen bg-gray-900">
-        <h1 className="col-span-5 row-span-1 text-center bg-violet-950">OTT Chatbot</h1>
-        <h1 className="col-span-5 row-span-6">{answer}</h1>
+        <h1 className="col-span-5 row-span-1 text-center bg-violet-950 py-10">OTT Chatbot</h1>
+        <h1 className="col-span-5 row-span-6 px-5 py-2.5">{answer}</h1>
         <div className="grid grid-cols-subgrid grid-rows-subgrid col-span-5 row-span-1">
           <input 
             type="text" 
