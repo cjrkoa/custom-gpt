@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from chatbot import answer_question, initalize_model
+from chatbot import answer_question
 
 app = Flask(__name__)
 CORS(app)
