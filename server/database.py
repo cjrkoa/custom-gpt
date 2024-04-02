@@ -5,9 +5,10 @@ from os import environ
 load_dotenv()
 
 def get_database():
- 
+   USERNAME = environ.get("MONGO_USERNAME")
+   PASSWORD = environ.get("MONGO_PASSWORD")
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-   CONNECTION_STRING = f"mongodb+srv://{environ.get("MONGO_USERNAME")}:{environ.get("MONGO_PASSWORD")}@savedpromptresponses.hc4a3tj.mongodb.net/?retryWrites=true&w=majority"
+   CONNECTION_STRING = f"mongodb+srv://{USERNAME}:{PASSWORD}@savedpromptresponses.hc4a3tj.mongodb.net/?retryWrites=true&w=majority"
  
    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
    client = MongoClient(CONNECTION_STRING)
